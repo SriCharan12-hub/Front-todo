@@ -6,7 +6,7 @@ import { Navigate } from 'react-router-dom'
 const ProtectedRoute=({children})=> {
     const jwdtoken= Cookies.get('jwttoken')
     console.log("ProtectedRoute",jwdtoken)
-    if (jwdtoken === undefined){
+    if (!jwdtoken){
         return <Navigate to = "/" />
         }
     return children

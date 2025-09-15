@@ -16,9 +16,9 @@ function App() {
    
     <Routes> 
 
-      <Route path="/register" element={<Signup/>}></Route> 
+      <Route path="/" element={<Signup/>}></Route> 
       <Route path ='/login' element={<Login/>}></Route>
-      <Route path ='/' element={<Start/>}></Route>
+      {/* <Route path ='/' element={<Start/>}></Route> */}
       <Route path ='/home' element={<ProtectedRoute><Home/></ProtectedRoute>}></Route>
       <Route path ='/todo' element={<ProtectedRoute><TodoApp/></ProtectedRoute>}></Route>
 

@@ -20,13 +20,14 @@ function TodoApp() {
         navigate('/login');
         return;
       }
-      const response = await axios.get('http://localhost:8000/todos', {
+      const response = await axios.get('https://back-todo-6.onrender.com/todos', {
         headers: {
           Authorization: `Bearer ${jwttoken}`,
         },
       });
       setTodos(response.data.result);
       setLoading(false);
+      setError("")
     } catch (err) {
       console.error('Failed to fetch todos:', err);
       setLoading(false);
@@ -42,13 +43,13 @@ function TodoApp() {
   // New function to handle the form submission for both adding and updating
   const handleFormSubmit = async (e) => {
     e.preventDefault(); // Prevents the default form submission behavior (page reload)
-    if (inputValue.trim() === '') return;
+    if (inputValue.trim() === '') return ;
 
     try {
       if (editingId) {
         // If there's an editingId, it means we are updating an item
         const response = await axios.put(
-          `http://localhost:8000/todos/${editingId}`,
+          `https://back-todo-6.onrender.com/todos/${editingId}`,
           { text: inputValue },
           {
             headers: { Authorization: `Bearer ${jwttoken}` },
@@ -60,10 +61,11 @@ function TodoApp() {
             todo._id === editingId ? response.data.result : todo
           )
         );
+        setError("")
         setEditingId(null); 
       } else {
         const response = await axios.post(
-          'http://localhost:8000/todos',
+          'https://back-todo-6.onrender.com/todos',
           { text: inputValue },
           {
             headers: { Authorization: `Bearer ${jwttoken}` },
@@ -82,12 +84,13 @@ function TodoApp() {
 
   const handleDeleteTodo = async (id) => {
     try {
-      await axios.delete(`http://localhost:8000/todos/${id}`, {
+      await axios.delete(`https://back-todo-6.onrender.com/todos/${id}`, {
         headers: {
           Authorization: `Bearer ${jwttoken}`,
         },
       });
       setTodos(todos.filter(todo => todo._id !== id));
+      setError("")
     } catch (err) {
       console.error('Failed to delete todo:', err);
       setError('Failed to delete task.');
@@ -103,7 +106,7 @@ function TodoApp() {
   const handleToggleComplete = async (id, currentStatus) => {
     try {
       const response = await axios.put(
-        `http://localhost:8000/todos/${id}`, 
+        `https://back-todo-6.onrender.com/todos/${id}`, 
         { completed: !currentStatus },
         {
           headers: { Authorization: `Bearer ${jwttoken}` },
@@ -114,6 +117,7 @@ function TodoApp() {
           todo._id === id ? response.data.result : todo
         )
       );
+      setError("")
     } catch (err) {
       console.error('Failed to update todo:', err);
       setError('Failed to update task.');
@@ -140,7 +144,7 @@ function TodoApp() {
           {editingId ? 'Update' : 'Add'}
         </button>
       </form>
-      {error && <p className="error-message">{error}</p>}
+      {error && <p className="error-message" style={{color:"red"}}>{error}</p>}
       <ul className="todo-list">
         {todos.map(todo => (
           <li

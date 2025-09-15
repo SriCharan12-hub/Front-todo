@@ -4,7 +4,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  /* height: 150vh; */
   margin: 0;
 }
 
@@ -15,6 +15,10 @@ body {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   width: 400px;
   text-align: center;
+  margin-top: 30px;
+  margin-bottom: 250px;
+  /* padding-top:50px; */
+  
 }
 
 h1 {
@@ -103,4 +107,7 @@ h1 {
 
 .delete-btn:hover {
   background-color: #c82333;
+}
+.edit-btn{
+  padding: 7px;
 }
