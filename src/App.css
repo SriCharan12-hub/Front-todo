@@ -1,0 +1,74 @@
+
+input {
+  padding: 15px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  background-color: #f0f2f5;
+  color: red;
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+  display: block;
+  margin-top: 10px;
+  border-color: #38abf3;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: #f5576c;
+  box-shadow: 0 0 15px rgba(245, 87, 108, 0.3);
+}
+button {
+  padding: 15px 30px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: #fff;
+  transition: all 0.3s ease;
+  background: linear-gradient(45deg, #4594df 0%, #f093fb 100%);
+  box-shadow: 0 5px 15px rgba(245, 87, 108, 0.2);
+  margin-top: 20px;
+  margin-right: 20px;
+}
+
+button:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(245, 87, 108, 0.3);
+}
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #dc4dec 0%, #38abf3 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  color: #333;
+}
+
+.con {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 650px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  animation: fadeIn 1s ease-in-out;
+}
+.homehead{
+  color: aqua;
+}
+.registerpara{
+  
+  display: flex;
+  align-items: center;
+  gap: 8px;      /* spacing between checkbox & text */
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 10px;  /* move it down a little */
+
+
+}
